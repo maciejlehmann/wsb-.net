@@ -1,0 +1,86 @@
+﻿@page
+@model Restuarant.Pages.Dishes.IndexModel
+
+@{
+	ViewData["Title"] = "Index";
+}
+<div class="container overflow-hidden">
+	<div class="row py-3">
+		<div class="col">
+			<h1>Menu</h1>
+		</div>
+		<div class="col">
+			<div class="d-flex justify-content-end">
+				<a asp-page="Create" class="btn btn-success">Dodaj nową pozycję do menu</a>
+			</div>
+		</div>
+	</div>
+	<div class="row py-3">
+		<div class="col">
+			<form>
+				<div class="d-flex align-items-center gap-2">
+					<label class="form-label">Nazwa:</label>
+					<input type="text" asp-for="SearchString" class="form-control" />
+					<select asp-for="DishType" asp-items="Model.Types" class="form-select">
+						<option value="">Wszystko</option>
+					</select>
+					<input type="submit" value="Szukaj" class="btn btn-primary" />
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row py-3">
+		<div class="col-12">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							@Html.DisplayNameFor(model => model.Dish[0].Name)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Dish[0].Description)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Dish[0].Price)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Dish[0].Type)
+						</th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model.Dish)
+					{
+						@if (item.ImageUrl != nameof(Model.Dish))
+						{
+							<tr>
+								<td>
+									@Html.DisplayFor(modelItem => item.Name)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Description)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Price)
+								</td>
+								<td>
+									@Html.DisplayFor(modelItem => item.Type)
+								</td>
+								<td>
+									<a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-info btn-sm">Szczegóły</a>
+								</td>
+								<td>
+									<a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-warning btn-sm">Edytuj</a>
+								</td>
+								<td>
+									<a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm">Usuń</a>
+								</td>
+							</tr>
+						}
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

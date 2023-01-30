@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid">
+	<div class="row text-center py-2">
+		<div class="col">
+			<h1>Witaj w Restaruacji</h1>
+		</div>
+	</div>
+	<div class="row text-center py-2">
+		<div class="col">
+			<img src="https://cdn.pixabay.com/photo/2017/01/26/02/06/platter-2009590_960_720.jpg" class="img-fluid" alt="Restauracja">
+		</div>
+	</div>
+	<div class="row text-center py-2">
+		<div class="col">
+			<a class="btn btn-success btn-lg" asp-page="/Dishes/Index">Obejrzyj obecne menu</a>
+		</div>
+	</div>
+</div>

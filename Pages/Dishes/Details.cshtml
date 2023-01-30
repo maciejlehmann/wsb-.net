@@ -1,0 +1,75 @@
+﻿@page "{id:int}"
+@model Restuarant.Pages.Dishes.DetailsModel
+
+@{
+	ViewData["Title"] = "Details";
+}
+
+<div class="container">
+	<div class="row">
+		<div class="col">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="d-flex justify-content-between align-items-center">
+				<div class="d-flex align-items-center gap-2">
+					<h3>Szczegóły</h3>
+					<h1> - @Html.DisplayFor(model => model.Dish.Name)</h1>
+				</div>
+				<a asp-page="./Index" class="btn btn-outline-primary">Wróć do menu</a>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<hr />
+		</div>
+	</div>
+	<div class="row py-2">
+		<div class="col-2">
+			@Html.DisplayNameFor(model => model.Dish.Name)
+		</div>
+		<div class="col-10 fw-bold">
+			@Html.DisplayFor(model => model.Dish.Name)
+		</div>
+	</div>
+	<div class="row py-2">
+		<div class="col-2">
+			@Html.DisplayNameFor(model => model.Dish.Description)
+		</div>
+		<div class="col-10 fw-bold">
+			@Html.DisplayFor(model => model.Dish.Description)
+		</div>
+	</div>
+	<div class="row py-2">
+		<div class="col-2">
+			@Html.DisplayNameFor(model => model.Dish.Price)
+		</div>
+		<div class="col-10 fw-bold">
+			@Html.DisplayFor(model => model.Dish.Price)
+		</div>
+	</div>
+	<div class="row py-2">
+		<div class="col-2">
+			@Html.DisplayNameFor(model => model.Dish.Type)
+		</div>
+		<div class="col-10 fw-bold">
+			@Html.DisplayFor(model => model.Dish.Type)
+		</div>
+	</div>
+	<div class="row py-2">
+		<div class="col-2">
+			@Html.DisplayNameFor(model => model.Dish.ImageUrl)
+		</div>
+		<div class="col-10 fw-bold">
+			@Html.DisplayFor(model => model.Dish.ImageUrl)
+		</div>
+	</div>
+	<div class="row py-2">
+		<div class="col">
+			<a asp-page="./Edit" asp-route-id="@Model.Dish?.ID" class="btn btn-warning">Edytuj</a>
+		</div>
+	</div>
+</div>
+
